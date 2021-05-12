@@ -82,8 +82,8 @@
 
 <header class="flex justify-center align-middle bg-gray-800">
     <div class="flex flex-col mt-8 space-y-10">
-        <h1 class="text-6xl text-gray-200">ABRSM Piano Theory Terms</h1>
-        <nav class="flex flex-row justify-between align-middle w-full bg-gray-100 text-gray-500 space-x-4">
+        <h1 class="text-2xl sm:text-5xl text-gray-200">ABRSM Piano Theory Terms</h1>
+        <nav class="flex flex-col sm:flex-row justify-between align-middle w-full bg-gray-100 text-gray-500 sm:space-x-4">
             <button class="{langString === 'all' ? 'italic' : ''} font-bold hover:text-gray-700 hover:underline h-full w-full py-4" on:click={() => setLang(all, "all")}>
                 ALL TERMS
             </button>
@@ -138,6 +138,6 @@
 
     :global(body) {
         @apply bg-gray-100;
-        overflow-y: hidden;
+        overflow-y: auto;
     }
 </style>

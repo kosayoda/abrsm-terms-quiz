@@ -76,7 +76,7 @@
     $: strikeMax = (index == questions.length - 1) ? "opacity-60 line-through" : "hover:bg-gray-800";
 
     let reveal = false;
-    $: contentReveal = reveal ? "visible" : "invisible";
+    $: contentReveal = reveal ? "block" : "hidden";
     $: buttonReveal = reveal ? "hidden" : "block";
 </script>
 
@@ -112,7 +112,7 @@
 
     <div class="flex justify-center mt-10">
         <div class="bg-white rounded-lg shadow-md max-w-2xl w-full h-56">
-            <button class="block h-full w-full text-gray-700 text-2xl {buttonReveal}" on:click={() => reveal = true}>Click to reveal</button>
+            <button class="h-full w-full text-gray-700 text-2xl {buttonReveal}" on:click={() => reveal = true}>Click to reveal</button>
             <div class="flex flex-col justify-center space-y-14 {contentReveal} m-10">
                 <span class="text-gray-800 text-3xl">{ans}</span>
 

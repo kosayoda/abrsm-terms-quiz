@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { italian, german, french } from '$lib/terms.json';
+  import Footer from "$lib/Footer.svelte";
 
 	function preprocess(questions: Record<string, string[]>) {
 		return Object.entries(questions);
@@ -171,15 +172,18 @@
 	</div>
 </section>
 
-<style>
-	button:focus-visible {
-		outline: none;
-		@apply ring-4;
-		@apply ring-red-400;
-	}
+<Footer />
 
-	:global(body) {
-		@apply bg-gray-100;
-		overflow-y: auto;
-	}
+<style>
+  button:focus-visible,
+  input:focus-visible {
+    outline: none;
+    @apply ring-2;
+    @apply ring-blue-400;
+  }
+
+  :global(body) {
+    @apply bg-gray-100;
+    overflow-y: auto;
+  }
 </style>

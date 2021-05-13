@@ -202,10 +202,15 @@
 <Footer />
 
 <style>
-  button:focus-visible,
   input:focus-visible {
     outline: none;
     @apply ring-2;
+    @apply ring-blue-400;
+  }
+
+  button:focus-visible {
+    outline: none;
+    @apply ring-4;
     @apply ring-blue-400;
   }
 

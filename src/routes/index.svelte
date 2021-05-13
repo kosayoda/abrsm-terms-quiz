@@ -26,19 +26,22 @@
 
   const inc = () => {
     if (index < questions.length - 1) {
-      index = index + 1;
       _reset();
-      document.getElementById("inp").value = "";
-      document.getElementById("inp").focus();
+      index = index + 1;
+      // Delay for 200 msecs so the input renders before we try to add focus
+      setTimeout(
+        function() {document.getElementById("inp").focus()}, 200
+      );
     }
   };
 
   const dec = () => {
     if (index > 0) {
-      index = index - 1;
       _reset();
-      document.getElementById("inp").value = "";
-      document.getElementById("inp").focus();
+      index = index - 1;
+      setTimeout(
+        function() {document.getElementById("inp").focus()}, 200
+      );
     }
   };
 
@@ -111,7 +114,7 @@
 </script>
 
 <header class="flex justify-center align-middle bg-gray-800">
-  <div class="flex flex-col mt-8 space-y-10">
+  <div class="flex flex-col mt-12 space-y-10">
     <h1 class="font-bold text-2xl sm:text-5xl text-gray-200">ABRSM Piano Theory Terms</h1>
     <nav
       class="flex flex-col sm:flex-row justify-between align-middle w-full bg-gray-200 text-gray-500 sm:space-x-4"
@@ -202,7 +205,7 @@
   </div>
 
   <!-- Question index and reset -->
-  <div class="flex justify-between items-center max-w-2xl mx-auto w-full pt-6 px-4">
+  <div class="flex justify-between items-center max-w-2xl mx-auto w-full pt-6 px-4 pb-20">
     <span class="flex align-middle text-gray-700">{index + 1} / {questions.length}</span>
     <div class="flex align-middle items-center">
         <span class="mr-10 text-gray-700 space-x-4">

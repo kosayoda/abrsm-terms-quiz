@@ -154,6 +154,7 @@
       placeholder="place your answer here"
       bind:value
       on:keyup|preventDefault={handleKeyup}
+      disabled={reveal}
     />
   </div>
 

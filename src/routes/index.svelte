@@ -155,20 +155,20 @@
   </div>
 </header>
 
-<section class="flex flex-col justify-center align-middle h-auto pt-20">
+<section class="flex flex-col justify-center align-middle h-auto pt-16">
   <!-- Question Box -->
-  <div class="flex flex-col text-center space-y-4">
+  <div class="flex flex-col text-center space-y-4 pb-14">
     <span class="text-lg md:text-2xl">What is the meaning of...</span>
     <span class="break-all text-6xl md:text-8xl mx-8">{term}</span>
   </div>
 
   <!-- Input box -->
-  <div class="flex flex-row justify-center pt-6 space-x-4 mx-4">
+  <div class="flex flex-row justify-center space-x-4 mx-4">
     <input
       id="inp"
       class="max-w-lg w-full p-4 my-2 border border-gray-300 rounded-md"
       type="text"
-      placeholder="place your answer here"
+      placeholder="type your answer here"
       bind:value
       on:keyup|preventDefault={handleKeyup}
       disabled={reveal}
@@ -176,7 +176,7 @@
   </div>
 
   <!-- Answer box -->
-  <div class="flex justify-center mt-10 mx-8">
+  <div class="flex justify-center mt-10 mx-4">
     <div class="bg-white rounded-lg shadow-md max-w-2xl w-full h-56 border-4 {answerStyle}">
       <!-- Reveal button -->
       <button
@@ -205,16 +205,20 @@
   </div>
 
   <!-- Question index and reset -->
-  <div class="flex justify-between items-center max-w-2xl mx-auto w-full pt-6 px-4 pb-20">
-    <span class="flex align-middle text-gray-700">{index + 1} / {questions.length}</span>
-    <div class="flex align-middle items-center">
-        <span class="mr-10 text-gray-700 space-x-4">
-            <svg class="inline w-6 h-6 fill-current text-green-500" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
-            <span class="inline-flex align-middle">{rightCounter}</span>
-            <svg class="inline w-5 h-5 fill-current text-red-500" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
-            <span class="inline-flex align-middle">{wrongCounter}</span>
+  <div class="flex justify-between items-center max-w-2xl mx-auto w-full pt-6 px-4 pb-16">
+    <div class="flex align-middle items-center text-gray-800 space-x-4">
+        <button class="ml-auto px-4 py-1 border border-gray-200 bg-gray-200 text-gray-700 rounded-md hover:bg-red-500 hover:text-white" on:click={reset}>Reset</button>
+    </div>
+    <div class="flex space-x-4 text-gray-700 tabular-nums">
+        <span class="inline-flex justify-center items-center bg-green-200 w-10 h-8 rounded-md">
+            {rightCounter}
         </span>
-        <button class="px-4 py-1 border border-gray-200 bg-gray-200 text-gray-700 rounded-md hover:bg-red-500 hover:text-white" on:click={reset}>Reset</button>
+        <span class="inline-flex justify-center items-center bg-red-200 w-10 h-8 rounded-md">
+            {wrongCounter}
+        </span>
+        <span class="inline-flex justify-center items-center bg-blue-200 w-20 h-8 rounded-md">
+            {index + 1}/{questions.length}
+        </span>
     </div>
   </div>
 </section>

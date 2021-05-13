@@ -58,7 +58,7 @@
       reveal = true;
       console.log(value);
       console.log(questions[index][1]);
-      answerStyle = questions[index][1].includes(value.toLowerCase()) ? AnswerState.RIGHT : AnswerState.WRONG;
+      answerStyle = questions[index][1].includes(value.trim().toLowerCase()) ? AnswerState.RIGHT : AnswerState.WRONG;
     }
   };
 

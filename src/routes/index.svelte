@@ -27,45 +27,57 @@
   const inc = () => {
     if (index < questions.length - 1) {
       index = index + 1;
-      reveal = false;
-      value = "";
-      answerStyle = AnswerState.NONE;
+      _reset();
       document.getElementById("inp").value = "";
       document.getElementById("inp").focus();
     }
   };
+
   const dec = () => {
     if (index > 0) {
       index = index - 1;
-      reveal = false;
-      value = "";
-      answerStyle = AnswerState.NONE;
+      _reset();
       document.getElementById("inp").value = "";
       document.getElementById("inp").focus();
     }
   };
+
   const reset = () => {
     questions = shuffle(processed);
     index = 0;
+    rightCounter = 0;
+    wrongCounter = 0;
+    _reset();
+  };
+
+  const _reset = () => {
     reveal = false;
     value = "";
     answerStyle = AnswerState.NONE;
-  };
+  }
 
   const handleKeyup = (event) => {
     if (event.key == "Enter" && value !== "") {
       event.preventDefault();
       reveal = true;
-      console.log(value);
-      console.log(questions[index][1]);
-      answerStyle = questions[index][1].includes(value.trim().toLowerCase()) ? AnswerState.RIGHT : AnswerState.WRONG;
+      if (questions[index][1].includes(value.trim().toLowerCase())) {
+        answerStyle = AnswerState.RIGHT;
+        rightCounter += 1;
+      } else {
+        _wrong();
+      }
     }
   };
 
+  const _wrong = () => {
+    answerStyle = AnswerState.WRONG;
+    wrongCounter += 1;
+  }
+
   const setLang = (lang, str) => {
-    reveal = false;
-    value = "";
-    index = 0;
+    _reset();
+    rightCounter = 0;
+    wrongCounter = 0;
     language = lang;
     langString = str;
     answerStyle = AnswerState.NONE;
@@ -94,6 +106,8 @@
     NONE = "border-gray-200",
   }
   let answerStyle = AnswerState.NONE;
+  let rightCounter = 0;
+  let wrongCounter = 0;
 </script>
 
 <header class="flex justify-center align-middle bg-gray-800">
@@ -164,10 +178,7 @@
       <!-- Reveal button -->
       <button
         class="h-full w-full text-gray-700 text-2xl {buttonReveal}"
-        on:click={() => {
-          reveal = true;
-          answerStyle = AnswerState.WRONG;
-        }}>Click to reveal</button
+        on:click={() => { reveal = true; _wrong()}}>Click to reveal</button
       >
 
       <!-- Answer -->
@@ -191,12 +202,17 @@
   </div>
 
   <!-- Question index and reset -->
-  <div class="flex flex-row justify-between max-w-2xl mx-auto w-full pt-6 px-4">
-    <span class="ml-4 text-gray-700">{index + 1} / {questions.length}</span>
-    <button
-      class="px-4 py-1 border border-gray-200 bg-gray-200 text-gray-700 rounded-md hover:bg-red-500 hover:text-white"
-      on:click={reset}>Reset</button
-    >
+  <div class="flex justify-between items-center max-w-2xl mx-auto w-full pt-6 px-4">
+    <span class="flex align-middle text-gray-700">{index + 1} / {questions.length}</span>
+    <div class="flex align-middle items-center">
+        <span class="mr-10 text-gray-700 space-x-4">
+            <svg class="inline w-6 h-6 fill-current text-green-500" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            <span class="inline-flex align-middle">{rightCounter}</span>
+            <svg class="inline w-5 h-5 fill-current text-red-500" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+            <span class="inline-flex align-middle">{wrongCounter}</span>
+        </span>
+        <button class="px-4 py-1 border border-gray-200 bg-gray-200 text-gray-700 rounded-md hover:bg-red-500 hover:text-white" on:click={reset}>Reset</button>
+    </div>
   </div>
 </section>
 

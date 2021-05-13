@@ -16,3 +16,10 @@
   </div>
   <span class="text-lg text-gray-200">Made by kosayoda.</span>
 </footer>
+
+
+<style>
+    a:focus-visible > svg {
+        @apply text-blue-400;
+    }
+</style>

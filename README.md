@@ -2,9 +2,9 @@
 
 A quiz for the ABRSM Grade 8 Piano Theory terms.
 
-<p align="center">
+<p align="center" >
     <img src="./static/preview.webp" width="50%"><br>
-    <span style="font-weight: 800; font-size: 2rem;"><a href="https://abrsm-terms-quiz.vercel.app">The project is hosted here.</span>
+    <a href="https://abrsm-terms-quiz.vercel.app">The project is hosted here.</a>
 </p>
 
 ## Notes

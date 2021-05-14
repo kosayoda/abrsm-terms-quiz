@@ -1,38 +1,37 @@
-# create-svelte
+# ABRSM Theory Terms Quiz
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+A quiz for the ABRSM Grade 8 Piano Theory terms.
 
-## Creating a project
+<p align="center">
+    <img src="./static/preview.webp" width="50%"><br>
+    <span style="font-weight: 800; font-size: 2rem;"><a href="https://abrsm-terms-quiz.vercel.app">The project is hosted here.</span>
+</p>
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Notes
+
+1. Please let me know if you find any issues with spelling or term meanings.
+2. This project is made with [SvelteKit](https://kit.svelte.dev/) and [TailwindCSS](https://tailwindcss.com/).
+3. This project is hosted on [Vercel](https://vercel.com) on their free tier.
+4. Feel free to open an issue if you have any suggestions!
+
+## Running
 
 ```bash
-# create a new project in the current directory
-npm init svelte@next
+# Install development dependencies
+$ npm i -D
 
-# create a new project in my-app
-npm init svelte@next my-app
+# Build the static website
+$ npm run build
 ```
 
-> Note: the `@next` is temporary
+The resulting build will be in the `build/` folder. Serve with a static host of your choice.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
 ```bash
-npm run dev
+# Install development dependencies
+$ npm i -D
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Start the development server
+$ npm run dev -- --open
 ```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.

@@ -8,7 +8,7 @@ const config = {
   preprocess: [
     preprocess({
       defaults: {
-          script: "typescript",
+        script: "typescript",
       },
       postcss: true,
     }),

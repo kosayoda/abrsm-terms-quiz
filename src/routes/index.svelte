@@ -60,7 +60,7 @@
 
   const setLang = (lang: string) => {
     language = lang;
-    reset.soft();
+    reset.hard();
   };
 
   const languageMap: Record<Language, TermMap> = allLanguages;

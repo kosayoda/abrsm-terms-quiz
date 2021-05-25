@@ -59,8 +59,10 @@
   };
 
   const setLang = (lang: string) => {
-    language = lang;
-    reset.hard();
+    if (lang !== language) {
+        language = lang;
+        reset.hard();
+    }
   };
 
   const languageMap: Record<Language, TermMap> = allLanguages;
